@@ -51,10 +51,15 @@ for ($i = 1; $i <= 12; $i++) {
 ?>
 
 <body>
-    <?php for ($n = 1; $n <= 12; $n++) {
+    <?php
+    shuffle($cards);
+    foreach ($cards as $x) {
+        $x->displayPic();
+    }
+    shuffle($cards);
 
-        $cards['card' . $n]->displayPic();
-        $cards['card' . $n]->displayPic();
+    foreach ($cards as $x) {
+        $x->displayPic();
     }
     ?>
     <!-- <img src="/media/frontPic.jpg" alt=""> -->
