@@ -1,0 +1,10 @@
+.board{
+    height: 100vh;
+    /* background-color: aqua; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+div{
+   margin: 1em;
+}

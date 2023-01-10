@@ -29,57 +29,41 @@ require_once("header.php");
 // }
 // echo $card1;
 
-//create the cards
+//create the card objects, chnage the middle value to chnage the paris presented
 $cards = [];
 for ($i = 1; $i <= 12; $i++) {
-    $cards['card' . $i] = new Card('<img src="..\media\frontPic.jpg" alt="Card image">', $i);
+    $cards['card' . $i] = new Card($i);
 }
 
-// print_r($x);
-// $cards['card' . $i]->displayPic();
 
-// $cards['card9']->getId();
-// $cards['card12']->displayPic();
-
-
-
-// $cards['card3']->displayPic();
-// print_r($cards['card1']);
-// print_r($cards['card2']);
 
 
 ?>
 
+
 <body>
-    <?php
-    shuffle($cards);
-    foreach ($cards as $x) {
-        $x->displayPic();
-    }
-    shuffle($cards);
+    <div class="board">
+        <?php
+        // displaying the board
+        shuffle($cards);
+        foreach ($cards as $a) {
 
-    foreach ($cards as $x) {
-        $x->displayPic();
-    }
-    ?>
-    <!-- <img src="/media/frontPic.jpg" alt=""> -->
-    <!-- <div class="     ">
+            $a->frontPic();
 
-        <div class="thecard">
+            // $a->backPic();
 
-            <div class="thefront">
-                <h1>Front of Card</h1>
-                <p>This is the front of the card. It contains important information. Please see overleaf for more details.</p>
-            </div>
+            // echo $a->content;
+            // print_r($x);
+        }
+        shuffle($cards);
 
-            <div class="theback">
-                <h1>Back of Card</h1>
-                <p>Your use of this site is subject to the terms and conditions governing this and all transactions.</p>
-                <button>Submit</button>
-            </div>
+        foreach ($cards as $b) {
+            // $b->backPic();
+            $b->frontPic();
+        }
+        ?>
+    </div>
 
-        </div>
-    </div> -->
 
 </body>
 

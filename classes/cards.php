@@ -2,14 +2,12 @@
 class Card
 {
     public $id;
-    public $content;
     private $conn;
 
 
-    public function __construct($content, $id)
+    public function __construct($id)
     {
         $this->id = $id;
-        $this->content = $content;
         try {
             $this->conn = new PDO("mysql:host=localhost;dbname=memory_game", "root", "");
         } catch (PDOException $fail) {
@@ -24,12 +22,7 @@ class Card
     // }
 
 
-    public function display()
-    {
-        echo '<button class="card">';
-        echo $this->content;
-        echo '</button>';
-    }
+
     public function displayBack()
     {
 
@@ -47,7 +40,17 @@ class Card
             echo '</button>';
         }
     }
-    public function displayPic()
+    public function frontPic()
+    {
+        echo '<div class="card" >';
+        // echo '<img src="' . $row['backPic'] . '">';
+        echo '<img src="..\media\frontPic.jpg" alt="Card image">';
+        // echo $row['id']; 
+
+
+        echo '</div>';
+    }
+    public function backPic()
     {
         $query = "SELECT backPic FROM cards WHERE id =$this->id";
         $stmt = $this->conn->prepare($query);
@@ -55,9 +58,9 @@ class Card
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo '<button class="card" >';
+            echo '<div class="card" >';
             echo '<img class="images" src="data:image/jpeg;base64,' . base64_encode($row['backPic']) . '"/>';
-            echo '</button>';
+            echo '</div>';
         }
     }
     public function getId()
