@@ -49,9 +49,9 @@ class Card
     }
     public function displayPic()
     {
-        $query = "SELECT backPic FROM cards WHERE id = $this->id";
+        $query = "SELECT backPic FROM cards WHERE id =$this->id";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':id', $id);
+        // $stmt->bindParam(':id', $id);
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {

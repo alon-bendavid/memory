@@ -37,7 +37,9 @@ for ($i = 1; $i <= 12; $i++) {
 foreach ($cards as $x) {
     // print_r($x);
 }
-echo "The id of the card is : " . $cards['card9']->getId();
+echo  $cards['card9']->getId();
+echo  $cards['card12']->displayPic();
+
 // $cards['card3']->displayPic();
 // print_r($cards['card1']);
 // print_r($cards['card2']);
