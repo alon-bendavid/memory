@@ -3,6 +3,8 @@ class Card
 {
     public $id;
     private $conn;
+    public $frontPic;
+    public $backPic;
 
 
     public function __construct($id)
@@ -42,13 +44,17 @@ class Card
     }
     public function frontPic()
     {
-        echo '<div class="card" >';
-        // echo '<img src="' . $row['backPic'] . '">';
-        echo '<img src="..\media\frontPic.jpg" alt="Card image">';
-        // echo $row['id']; 
+        // echo '<div class="card" >';
+        // echo '<img src="..\media\frontPic.jpg" alt="Card image">';
+        // echo '</div>';
 
+?>
+        <form action="" method="post">
+            <?php echo "<input type='hidden' name= $this->id value='1'>" ?>
+            <input type="image" src="..\media\frontPic.jpg" alt="submit">
+        </form>
 
-        echo '</div>';
+<?php
     }
     public function backPic()
     {

@@ -30,11 +30,16 @@ require_once("header.php");
 // echo $card1;
 
 //create the card objects, chnage the middle value to chnage the paris presented
+// $cards = [];
+// for ($i = 1; $i <= 12; $i++) {
+//     array_push($cards, new Card($i));
+// }
+
 $cards = [];
 for ($i = 1; $i <= 12; $i++) {
     $cards['card' . $i] = new Card($i);
+    $cards['card' . ($i + 12)] = new Card($i);
 }
-
 
 
 
@@ -42,15 +47,22 @@ for ($i = 1; $i <= 12; $i++) {
 
 
 <body>
+    <?php //    var_dump($cards);   
+    ?>
     <div class="board">
         <?php
         // displaying the board
+        var_dump($cards);
         shuffle($cards);
         foreach ($cards as $a) {
 
-            $a->frontPic();
+            // $a->frontPic();
+            // print_r($a);
+            // if (isset($_POST[$a . $this->id])) {
+            //     echo "lol";
+            // }
 
-            // $a->backPic();
+            $a->backPic();
 
             // echo $a->content;
             // print_r($x);
@@ -59,7 +71,7 @@ for ($i = 1; $i <= 12; $i++) {
 
         foreach ($cards as $b) {
             // $b->backPic();
-            $b->frontPic();
+            // $b->frontPic();
         }
         ?>
     </div>
